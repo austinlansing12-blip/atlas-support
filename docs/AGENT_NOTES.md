@@ -6,12 +6,13 @@ requirements change.
 ## Before Changing Content
 
 - Read `README.md`, `index.html`, `privacy/index.html`, `support/index.html`,
-  and `docs/ARCHITECTURE.md`.
+  `community/index.html`, and `docs/ARCHITECTURE.md`.
 - Treat the privacy policy as a user-facing contract. Do not soften, remove, or
   add data-handling claims unless they match the actual app behavior.
-- Keep support guidance consistent with the privacy policy, especially around
-  local storage, optional Bluetooth heart-rate sensor use, export behavior, and
-  the medical disclaimer.
+- Keep support and community guidance consistent with the privacy policy,
+  especially around local storage, optional Social accounts, Bluetooth
+  heart-rate sensor use, sharing controls, account deletion, and the medical
+  disclaimer.
 
 ## Adding Pages
 
@@ -41,7 +42,7 @@ High-value coverage for this site means protecting:
 - Internal link integrity.
 - Mobile metadata and expected page titles.
 - The no-client-runtime privacy posture.
-- The exact privacy and support claims users rely on.
+- The exact privacy, support, and community-safety claims users rely on.
 
 Avoid placeholder tests. A test should fail only when a public route, claim, or
 site invariant changes in a way that deserves review.

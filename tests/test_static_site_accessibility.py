@@ -65,7 +65,7 @@ class StaticPageAccessibilityTests(unittest.TestCase):
                     self.assertIn(fragment, text)
 
     def test_secondary_pages_include_multiple_scan_friendly_sections(self):
-        for page_key in ("privacy", "support"):
+        for page_key in ("privacy", "support", "community"):
             page = parse_page(page_key)
             with self.subTest(page=page_key):
                 self.assertGreaterEqual(len(page.heading_texts("h2")), 3)

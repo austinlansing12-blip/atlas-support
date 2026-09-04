@@ -59,55 +59,68 @@
   <main>
     <a class="back" href="../">Atlas</a>
     <h1>Atlas Privacy Policy</h1>
-    <p class="date">Effective date: May 19, 2026</p>
+    <p class="date">Effective date: September 3, 2026</p>
 
-    <p>Atlas is an iPhone workout tracker for logging strength training, reviewing workout history, and optionally recording heart-rate samples from compatible Bluetooth heart-rate sensors during workouts.</p>
+    <p>Atlas is an iPhone strength-training tracker. Train, Reflect, History, Settings, export, and restore work without an account. Atlas Social is optional and uses an account only when you choose to connect, join a Team, or mirror workouts for sharing.</p>
 
     <h2>Summary</h2>
-    <p>Atlas is designed to keep your training data under your control. The current public build does not require an account, does not use ads, does not use analytics SDKs, does not track you across apps or websites, and does not send your workout data to a developer-operated server.</p>
+    <p>Atlas does not sell personal data, show advertising, use third-party advertising or analytics SDKs, or track people across apps or websites. Local workout logging remains usable without an account. If you enable Atlas Social, the limited account, fitness, connection, Team, and safety data described below is transmitted to Atlas's service provider so Social can function.</p>
 
-    <h2>Data Stored On Your Device</h2>
-    <p>Atlas may store the following information locally on your device:</p>
+    <h2>Data Kept On Your Device</h2>
+    <p>Atlas stores workout sessions, exercises, sets, weights, reps, set types, rest timing, workout notes, body-weight preferences, training-math settings, optional Bluetooth heart-rate samples, and export settings locally on your device. Local data is used for logging, history, progress review, muscle-volume analysis, export, restore, and workout heart-rate analytics.</p>
+    <p>Workout notes, body mass, heart-rate data, Apple Health data, external Health identifiers, and device metadata are not included in Atlas Social. Bluetooth sensor use is optional, and you control any manual export destination through Apple's share sheet or document picker.</p>
+
+    <h2>Optional Atlas Social Data</h2>
+    <p>When you create or use an Atlas Social account, Atlas may collect and link these categories to that account for app functionality:</p>
     <ul>
-      <li>Workout sessions, exercises, sets, weights, reps, set types, rest timing, and workout notes.</li>
-      <li>Training preferences such as body weight, muscle-volume targets, and exercise credit rules.</li>
-      <li>Optional heart-rate samples captured from compatible Bluetooth heart-rate sensors while you use the sensor feature during a workout.</li>
-      <li>Export and restore preferences, such as whether automatic export is enabled and the user-selected folder bookmark used by iOS.</li>
+      <li><strong>Contact information:</strong> the name and email address supplied by Apple or Google during authentication.</li>
+      <li><strong>Identifiers:</strong> the Atlas account ID and the unique handle you choose.</li>
+      <li><strong>Fitness data:</strong> workout dates and duration, split, exercise names and equipment, sets, reps, load, set type, effort fields, weekly workout and working-set counts, volume, split mix, time-zone identifier, and UTC offset.</li>
+      <li><strong>Contacts and social graph:</strong> connection requests and accepted, declined, disconnected, or blocked relationships.</li>
+      <li><strong>Other user content:</strong> Team names and descriptions, Team memberships and roles, goal titles and targets, custom exercise names, and reports submitted through Social's safety tools.</li>
+      <li><strong>Coarse location and operational data:</strong> Internet Protocol address and related request metadata may be processed or retained in authentication and security logs by the hosting provider. Atlas does not request device location permission or collect GPS coordinates.</li>
     </ul>
-    <p>This data is used to provide Atlas features such as workout history, progress review, muscle-volume analysis, training math customization, export, restore, and workout heart-rate analytics.</p>
 
-    <h2>Bluetooth Heart-Rate Sensors</h2>
-    <p>Atlas can connect to compatible Bluetooth heart-rate sensors when you choose to start the heart-rate sensor feature. Heart-rate samples captured during a workout are stored locally with the workout so you can review intensity and detailed analytics later.</p>
-    <p>Bluetooth sensor use is optional. You can use the core workout logging features without connecting a heart-rate sensor.</p>
+    <h2>Your Sharing Choices</h2>
+    <p>The owner can read the full cloud copy of a workout. Other people receive only the audience and detail level selected for that workout:</p>
+    <ul>
+      <li><strong>Only me:</strong> no other account can view it.</li>
+      <li><strong>Connections:</strong> accepted connections can view it.</li>
+      <li><strong>Selected Teams:</strong> active members of only the selected Teams can view it.</li>
+      <li><strong>Atlas community:</strong> signed-in Atlas accounts can view it.</li>
+      <li><strong>Weekly metrics only:</strong> hides exercise and set rows from other viewers.</li>
+      <li><strong>Full detail:</strong> includes exercise names, sets, reps, and load for authorized viewers.</li>
+    </ul>
+    <p>Blocking removes both accounts' visibility into one another's Social content, including content otherwise shared through a Team. Structured Social text is screened before posting, and shared accounts or workouts can be reported for review.</p>
 
-    <h2>Apple Health</h2>
-    <p>The current public build of Atlas does not use HealthKit and does not request access to Apple Health.</p>
+    <h2>Authentication And Service Providers</h2>
+    <p>Atlas uses Supabase to provide authentication, database hosting, and authorization enforcement for Atlas Social. Sign in with Apple and Google Sign-In are optional authentication methods; those providers process sign-in information under their own terms and privacy policies. Atlas receives the identity information needed to create and secure the Atlas account and does not receive an Apple ID or Google password.</p>
+    <p>Data may be processed where these providers operate. Atlas requires service providers to use the data only to operate and secure the requested functionality.</p>
 
     <h2>Export And Restore</h2>
-    <p>Atlas includes manual export and restore tools so you can keep a copy of your workout data. If you choose to export data, iOS presents sharing or document-picker controls and you decide where the files go.</p>
-    <p>Atlas may also mirror exports to a folder you choose through the iOS document picker if you enable automatic export. That folder is selected and controlled by you.</p>
+    <p>Atlas includes manual export and restore tools so you can keep a copy of your workout data. If you choose to export data, iOS presents sharing or document-picker controls and you decide where the files go. Atlas may also mirror exports to a folder you choose through the iOS document picker if you enable automatic export.</p>
 
-    <h2>Data Collection</h2>
-    <p>The current public build of Atlas does not collect data for the developer. Atlas does not operate a backend service and does not transmit your workout data, heart-rate samples, or preferences to a developer-operated server.</p>
+    <h2>Retention And Deletion</h2>
+    <p>Local workout data remains on the device until you delete workouts, restore different data, or remove the app and its data. Cloud workout mirrors update or delete when their corresponding local workouts and sharing settings are changed and Social synchronizes.</p>
+    <p>You can delete the entire cloud account inside Atlas at Social → Manage Social privacy &amp; account → Delete cloud account. This removes the authentication record, profile, connection and Team records, goals created by the account, reports submitted by the account, and cloud workout mirror from the active service. References to a deleted account in reports submitted by somebody else are unlinked. Provider backups may retain encrypted copies temporarily until their normal backup-retention cycle expires. Deleting the cloud account does not delete the independent workout archive stored on the iPhone; local workouts can be removed separately in Atlas.</p>
 
-    <h2>Tracking, Advertising, And Analytics</h2>
-    <p>Atlas does not track you across apps or websites. Atlas does not include third-party advertising SDKs, third-party analytics SDKs, or data broker integrations.</p>
+    <h2>Security</h2>
+    <p>Atlas uses encrypted HTTPS connections, account-scoped authorization, database row-level security, atomic workout updates, and account-scoped offline queues. No Internet service can be guaranteed perfectly secure, but Atlas is designed to minimize collected data and prevent unauthorized cross-account access.</p>
 
-    <h2>Data Sharing</h2>
-    <p>Atlas does not sell your data. Atlas does not share your data with advertisers, analytics providers, or data brokers.</p>
-    <p>If you choose to export or share your data using iOS system features, the destination and handling of that exported data are controlled by you and the services or apps you choose.</p>
+    <h2>Tracking, Advertising, And Data Sales</h2>
+    <p>Atlas does not track you across other companies' apps or websites. Atlas has no ads and does not sell data to advertisers, data brokers, or other third parties. Social data is used only for account authentication, app functionality, safety, fraud prevention, and service security.</p>
+
+    <h2>Apple Health</h2>
+    <p>The current build does not use HealthKit or request Apple Health permission. If that changes, Atlas will ask for permission in context and update this policy and its App Store privacy information before collecting data.</p>
 
     <h2>Children</h2>
-    <p>Atlas is not directed to children and does not knowingly collect personal information from children.</p>
+    <p>Atlas is not directed to children under 13. People under 13 may use the local, account-free workout tracker under the supervision of a parent or guardian, but they may not create or use Atlas Social accounts.</p>
 
     <h2>Medical Disclaimer</h2>
-    <p>Atlas is for fitness tracking and training review only. It is not a medical device and does not provide medical advice, diagnosis, or treatment. Always consult a qualified medical professional before making medical decisions.</p>
+    <p>Atlas is for fitness tracking and training review only. It is not a medical device and does not provide medical advice, diagnosis, or treatment. Consult a qualified professional before making medical decisions.</p>
 
-    <h2>Changes To This Policy</h2>
-    <p>This policy may be updated if Atlas changes how it handles data. If data practices change, the App Store privacy information and this policy should be updated accordingly.</p>
-
-    <h2>Contact</h2>
-    <p>For privacy or support questions, use the Atlas support page: <a href="../support/">https://austinlansing12-blip.github.io/atlas-support/support/</a></p>
+    <h2>Changes And Contact</h2>
+    <p>This policy may be updated as Atlas changes. The effective date above identifies the latest version. For privacy, safety, or support questions, use the <a href="../support/">Atlas support page</a>. The rules for Social participation are available in the <a href="../community/">Atlas Community Standards</a>.</p>
   </main>
 </body>
 </html>
