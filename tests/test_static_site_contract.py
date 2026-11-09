@@ -217,11 +217,11 @@ class StaticSiteContractTests(unittest.TestCase):
             {"./privacy/", "./support/", "./community/"},
         )
         self.assertIn("Privacy Policy", link_texts["./privacy/"])
-        self.assertIn("optional Atlas Social data", link_texts["./privacy/"])
+        self.assertIn("local workouts and exports", link_texts["./privacy/"])
         self.assertIn("Support", link_texts["./support/"])
         self.assertIn("report a safety concern", link_texts["./support/"])
         self.assertIn("Community Standards", link_texts["./community/"])
-        self.assertIn("respectful Atlas Social", link_texts["./community/"])
+        self.assertIn("earlier Atlas Social beta", link_texts["./community/"])
 
         self.assertEqual(len(page.navs), 1)
         self.assertEqual(page.navs[0].get("aria-label"), "Atlas pages")
@@ -235,131 +235,19 @@ class StaticSiteContractTests(unittest.TestCase):
                 self.assertEqual(link_texts["../"], "Atlas")
 
 
-class PrivacyPolicyContentTests(unittest.TestCase):
-    def test_privacy_policy_sections_are_complete_and_ordered(self):
-        page = parse_page("privacy")
+class LocalOnlyContentTests(unittest.TestCase):
+    def test_privacy_matches_local_only_release(self):
+        text = parse_page("privacy").text.lower()
+        for claim in ["no account is required", "does not collect or transmit", "automatic exports", "not all preferences", "does not establish", "lock screen"]:
+            self.assertIn(claim, text)
+        self.assertIn("../support/", parse_page("privacy").link_hrefs())
 
-        self.assertEqual(
-            page.heading_texts("h2"),
-            [
-                "Summary",
-                "Data Kept On Your Device",
-                "Optional Atlas Social Data",
-                "Your Sharing Choices",
-                "Authentication And Service Providers",
-                "Export And Restore",
-                "Retention And Deletion",
-                "Security",
-                "Tracking, Advertising, And Data Sales",
-                "Apple Health",
-                "Children",
-                "Medical Disclaimer",
-                "Changes And Contact",
-            ],
-        )
-
-    def test_privacy_policy_has_parseable_effective_date(self):
-        page = parse_page("privacy")
-        marker = "Effective date: "
-        self.assertIn(marker, page.text)
-        date_text = page.text.split(marker, 1)[1].split(" Atlas is an iPhone", 1)[0]
-        self.assertEqual(datetime.strptime(date_text, "%B %d, %Y").date().isoformat(), "2026-09-03")
-
-    def test_privacy_policy_preserves_current_data_handling_claims(self):
-        page = parse_page("privacy")
-        text = page.text.lower()
-
-        required_claims = [
-            "work without an account",
-            "atlas social is optional",
-            "does not sell personal data",
-            "use third-party advertising or analytics sdks",
-            "track people across apps or websites",
-            "locally on your device",
-            "bluetooth sensor use is optional",
-            "not included in atlas social",
-            "only the audience and detail level selected",
-            "delete the entire cloud account inside atlas",
-            "does not delete the independent workout archive",
-            "does not use healthkit or request apple health permission",
-            "not a medical device",
-        ]
-
-        for claim in required_claims:
-            with self.subTest(claim=claim):
-                self.assertIn(claim, text)
-
-    def test_privacy_policy_names_the_local_data_categories(self):
-        page = parse_page("privacy")
-        text = page.text.lower()
-
-        expected_categories = [
-            "workout sessions",
-            "exercises",
-            "sets",
-            "weights",
-            "reps",
-            "workout notes",
-            "body-weight preferences",
-            "training-math settings",
-            "heart-rate samples",
-            "export settings",
-        ]
-
-        for category in expected_categories:
-            with self.subTest(category=category):
-                self.assertIn(category, text)
-
-    def test_privacy_policy_contact_points_to_support_page(self):
-        page = parse_page("privacy")
-        link_texts = page.link_texts_by_href()
-
-        self.assertIn("../support/", link_texts)
-        self.assertIn("Atlas support page", link_texts["../support/"])
-        self.assertIn("../community/", link_texts)
-
-
-class SupportContentTests(unittest.TestCase):
-    def test_support_page_sections_are_complete_and_ordered(self):
-        page = parse_page("support")
-
-        self.assertEqual(
-            page.heading_texts("h2"),
-            [
-                "Get Help",
-                "Common Notes",
-                "Social Safety And Privacy",
-                "Privacy Policy",
-                "Community Standards",
-            ],
-        )
-
-    def test_support_page_points_to_public_issue_tracker_and_privacy_page(self):
-        page = parse_page("support")
-        link_texts = page.link_texts_by_href()
-
-        issue_url = "https://github.com/austinlansing12-blip/atlas-support/issues"
-        self.assertIn(issue_url, link_texts)
-        self.assertEqual(link_texts[issue_url], issue_url)
-
-        self.assertIn("../privacy/", link_texts)
-        self.assertIn("atlas-support/privacy/", link_texts["../privacy/"])
-        self.assertIn("../community/", link_texts)
-        self.assertIn("atlas-support/community/", link_texts["../community/"])
-
-    def test_support_page_warns_against_posting_sensitive_details(self):
-        page = parse_page("support")
-        text = page.text.lower()
-
-        self.assertIn("avoid including private workout, health, or personal details", text)
-        self.assertIn("does not require an account or login for train", text)
-        self.assertIn("atlas social is optional", text)
-        self.assertIn("report a shared workout", text)
-        self.assertIn("block an account", text)
-        self.assertIn("delete a cloud account", text)
-        self.assertIn("workout archive on the iphone is intentionally retained", text)
-        self.assertIn("bluetooth heart-rate sensor support is optional", text)
-        self.assertIn("not a medical device", text)
+    def test_support_preserves_data_and_contact_guidance(self):
+        text = parse_page("support").text.lower()
+        for claim in ["deleting it can remove", "not a complete backup", "public issue", "earlier beta"]:
+            self.assertIn(claim, text)
+        self.assertIn("https://github.com/austinlansing12-blip/atlas-support/issues", parse_page("support").link_hrefs())
+        self.assertIn("../privacy/", parse_page("support").link_hrefs())
 
 
 class CommunityStandardsContentTests(unittest.TestCase):

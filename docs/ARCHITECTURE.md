@@ -34,23 +34,7 @@ ships.
 
 ## Content Contract
 
-The privacy policy currently states that Atlas:
-
-- Keeps its core workout tracker usable without an account.
-- Offers an optional Supabase-backed Social account with Apple or Google sign-in.
-- Does not use ads, analytics SDKs, or cross-app tracking.
-- Stores workout data, preferences, optional heart-rate samples, and export
-  preferences locally while mirroring only the selected Social workout fields.
-- Enforces per-workout audience and detail-level choices.
-- Supports in-app reporting, blocking, and cloud-account deletion while
-  retaining the independent local workout archive.
-- Does not use HealthKit or request access to Apple Health.
-- Lets users choose export and restore destinations through iOS controls.
-- Is a fitness tracking and training review app, not a medical device.
-
-The support page should stay aligned with those claims. If the app changes data
-handling, HealthKit usage, backend usage, analytics, or export behavior, update
-the privacy policy, support page, and tests together.
+As of November 8, 2026, the privacy and support pages describe local-only Atlas. No account or backend is used. Exports go to the user's chosen destination and are not a full app-state backup. Historical Social beta data must not be represented as deleted without evidence. The community page is explicitly historical.
 
 ## Testing
 
